@@ -2,7 +2,20 @@ import 'package:dartz/dartz.dart';
 
 import '../entities/entities.dart';
 import '../errors/errors.dart';
+import '../repositories/repositories.dart';
 
 abstract class SearchByText {
-  Either<FailureSearch, Future<List<ResultSearch>>> call(String searchText);
+  Future<Either<FailureSearch, List<ResultSearch>>> call(String searchText);
+}
+
+class SearchByTextImpl implements SearchByText {
+  final SearchRepository repository;
+
+  SearchByTextImpl(this.repository);
+
+  @override
+  Future<Either<FailureSearch, List<ResultSearch>>> call(
+      String searchText) async {
+    return this.repository.search(searchText);
+  }
 }
