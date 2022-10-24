@@ -33,4 +33,23 @@ void main() {
 
     expect(result, isA<Right<FailureSearch, List<ResultSearch>>>());
   });
+
+  test('should return an exception if text is invalid', () async {
+    when(() => repository.search(any()))
+        .thenAnswer((_) async => const Right(<ResultSearch>[]));
+
+    """
+    #or 
+    when(() => repository.search(any()))
+        .thenAnswer((_) => Future.value(const Right(<ResultSearch>[])));
+    """;
+
+    var result = await sut(null);
+    expect(result.isLeft(), true);
+    expect(result.fold(id, id), isA<InvalidTextError>());
+
+    result = await sut("");
+    expect(result.isLeft(), true);
+    expect(result.fold(id, id), isA<InvalidTextError>());
+  });
 }
