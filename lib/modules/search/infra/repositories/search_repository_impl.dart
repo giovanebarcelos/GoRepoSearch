@@ -19,8 +19,7 @@ class SearchRepositoryImpl implements SearchRepository {
       return Right(result);
     } on DataSourceError catch (e) {
       return Left(e);
-    }
-    catch (e) {
+    } catch (e) {
       return Left(DataSourceError());
     }
   }
