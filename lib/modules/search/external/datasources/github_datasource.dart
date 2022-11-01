@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../../../../modules/search/infra/datasources/datasources.dart';
 import '../../../../modules/search/infra/models/result_search_model.dart';
+import '../../../../modules/search/domain/errors/failures.dart';
 
 extension on String {
   normalize() {
@@ -29,6 +30,8 @@ class GitHubDataSource implements SearchDataSource {
           .toList();
 
       return list;
+    } else {
+      throw DataSourceError();
     }
 
     return <ResultSearchModel>[];
