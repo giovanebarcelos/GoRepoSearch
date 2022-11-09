@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../modules/search/domain/usecases/usecases.dart';
 import '../modules/search/external/datasources/datasources.dart';
 import '../modules/search/infra/repositories/repositories.dart';
+import 'modules/search/presenter/search/search.dart';
 
 class AppModule extends Module {
   @override
@@ -27,5 +28,7 @@ class AppModule extends Module {
   */
 
   @override
-  List<ModularRoute> get routes => const [];
+  List<ModularRoute> get routes => [
+        ChildRoute('/', child: (context, args) => const SearchPage()),
+      ];
 }
