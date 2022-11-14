@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../modules/search/domain/usecases/usecases.dart';
 import '../modules/search/external/datasources/datasources.dart';
 import '../modules/search/infra/repositories/repositories.dart';
-import 'modules/search/presenter/search/search.dart';
+import '../modules/search/presenter/search/search.dart';
 
 class AppModule extends Module {
   @override
@@ -13,6 +13,7 @@ class AppModule extends Module {
         Bind((i) => GitHubDataSource(i())),
         Bind((i) => SearchRepositoryImpl(i())),
         Bind((i) => SearchByTextImpl(i())),
+        Bind((i) => SearchBloc(i())),
       ];
 
   /*
