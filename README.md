@@ -1,16 +1,22 @@
-# go_repo_search
+# GitHub Repository Search applying Clean Architecture
 
-A new Flutter project.
+This app search users by name in the GitHub repository.
+It was written in Flutter and Dart using a Clean Architecture with the layers completely isolate.
+The app has complete cover of tests that was used with the technique TDD (Test Driven Development - https://en.wikipedia.org/wiki/Test-driven_development).
 
-## Getting Started
+## App Demo
 
-This project is a starting point for a Flutter application.
+The image below demonstrates how the application works.
 
-A few resources to get you started if this is your first Flutter project:
+![Go Repo Search](assets/GoRepoSearch.gif)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Libraries
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Libraries used in the app:
+
+- **dartz:** functional programming
+- **dio:** http client
+- **flutter_modular:** project structure
+- **flutter_bloc:** blocs and cubits
+- **mocktail:** tests and mocks
+- **rxdart:** extension of Dart Streams and StreamControllers
